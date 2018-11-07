@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"
+    <meta charset="utf-8">
+    <title>Poke!</title>
+    <style>
+      a {
+        color:black;
+        font-size:19px;
+      }
+      p {
+        color:#C8CCD4;
+      }
+    </style>
+  </head>
+  <body id="body" style='background-color:#202020'>
+    <div class="container">
+        <!-- Page Content goes here -->
+        <h1 class="center-align" style="color:#C8CCD4"> A quien necesitas? </h1>
+        <p class="center-align">Recuerda que esta persona puede estar ocupada y puede tomar tiempo en responderte asi que no lo spamees con notificaciones o estas pueden perder su nivel de importancia.</p>
+        <div class="row" id='users'>
+
+        </div>
+      </div>
+
+
+      <script type="text/template" id='users-template'>
+      {{#users}}
+    <div class="col 5">
+      <div class="row">
+      <div class="col s12">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">{{.}}</span>
+            <p></p>
+          </div>
+          <div class="card-action">
+            <a href="#" rel='{{.}}' task="llamar" style="text-transform:none">LLamar</a>
+            <a href="#" rel='{{.}}' task="trello" style="text-transform:none">Tarea Trello</a>
+            <a href="#" rel='{{.}}' task="felicitar" style="text-transform:none">Felicitar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    {{/users}}
+  </script>
+  </body>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script src="socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script src="/js/deparam.js"></script>
+  <script src="/js/mustache.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</html>
