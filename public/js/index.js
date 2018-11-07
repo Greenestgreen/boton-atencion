@@ -2,7 +2,7 @@
 
 var socket = io();
 
-function notifyMe(task) {
+function notifyMe(task); {
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
     alert("This browser does not support desktop notification");
@@ -25,7 +25,7 @@ function notifyMe(task) {
     Notification.requestPermission().then(function (permission) {
       // If the user accepts, let's create a notification
       if (permission === "granted") {
-        var notification = new Notification("Hi there!");
+        notifyMe(task);
       }
     });
   }
