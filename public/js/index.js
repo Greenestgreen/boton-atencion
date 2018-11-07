@@ -2,7 +2,12 @@
 
 var socket = io();
 
-function notifyMe(task); {
+if (Notification.permission !== "denied") {
+  Notification.requestPermission();
+}
+
+
+function notifyMe(task) {
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
     alert("This browser does not support desktop notification");
@@ -10,9 +15,10 @@ function notifyMe(task); {
 
   // Let's check whether notification permissions have already been granted
   else if (Notification.permission === "granted") {
+    console.log(task);
     // If it's okay let's create a notification
-    if (!task.img) {
-      task.img = 'https://i.imgur.com/NVx6k3C.png';
+    if (task.img) {
+      task.img = 'https://i.imgur.com/NVx6k3C.png'
     }
     var img = task.img;
     var text = task.task;
